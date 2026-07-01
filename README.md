@@ -6,7 +6,7 @@
 
 > このリポジトリは **exe の配布専用** です。ソースコードは非公開リポジトリで管理しています。
 
-> 📋 **会社側で必要な準備（RedMine設定・Q&Aデータ等）は [COMPANY-SETUP.md](COMPANY-SETUP.md) にまとめています。**
+> 📋 **会社側で必要な準備（RedMine設定・Q&Aデータ等）は [COMPANY-SETUP.md](COMPANY-SETUP.md)（チェックリスト）／ [SETUP-STEPS.md](SETUP-STEPS.md)（画面操作つき詳細手順）にまとめています。**
 
 ## ダウンロード
 
