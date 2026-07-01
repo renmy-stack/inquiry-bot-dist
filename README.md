@@ -13,29 +13,38 @@
 - Windows 64bit / **インストール不要（Python も不要）**
 - zipを展開し、フォルダ内で使用
 
-## 使い方（Python不要）
+## 使い方（Python不要・GUIで完結）
 
-zip を展開すると次の3点が入っています。
+zip を展開すると次が入っています。
 
 ```
 inquiry-bot/
-├── inquiry-bot.exe        本体（Python同梱）
-├── config.example.json    設定テンプレート（config.json にコピーして使う）
-└── qa-template.xlsx       Q&A Excel の雛形（スキーマ＋記入例）
+├── inquiry-bot-gui.exe    GUI（設定＆実行／これだけ使えばOK）
+├── inquiry-bot.exe        CLI（自動化・スクリプト用）
+├── config.example.json    設定テンプレート（GUIを使うなら不要）
+├── qa-template.xlsx       Q&A Excel の雛形（スキーマ＋記入例）
+└── はじめに.txt           かんたん手順
 ```
 
-1. `config.example.json` を **`config.json`** にコピーし、`<...>` を実値に編集
-   - `url` … 社内RedMineのURL
-   - `api_key` … RedMineのAPIアクセスキー
-   - `project_identifier` … 対象プロジェクト識別子
-   - DMSFを使う場合: `qa_dmsf_file_id` にファイルIDを設定（`qa_excel_local` は `null`）
-   - DMSFを使わない場合: `qa_template.xlsx` を埋めて `qa.xlsx` として置き、`qa_excel_local` に `"qa.xlsx"`
-2. コマンドプロンプトで実行:
-   ```
-   inquiry-bot.exe <チケット番号>          解答案をチケットにコメント投稿
-   inquiry-bot.exe <チケット番号> --dry     投稿せず内容だけ表示（まず動作確認に）
-   ```
-3. RedMineの該当チケットに 🤖 の解答案コメントが付く → 人が妥当性を判断
+### かんたん3ステップ（GUI）
+
+1. **`inquiry-bot-gui.exe` をダブルクリック**
+2. **「設定」タブ**で入力して「💾 設定を保存」
+   - RedMine URL ／ APIアクセスキー ／ プロジェクト識別子
+   - Q&Aの場所：`RedMine DMSF`（ファイルID）か `ローカルExcel`（`qa.xlsx`）を選ぶ
+3. **「実行」タブ**でチケット番号を入れて「▶ 実行」
+   - まずは「投稿せず確認のみ」にチェックして内容確認 → 外して実投稿
+   - RedMineの該当チケットに 🤖 の解答案コメントが付く → 人が妥当性を判断
+
+> config.json はGUIが自動生成するので、**JSONの手編集は不要**です。
+
+### CLI（自動化したい場合）
+
+`config.json` を用意し（GUIで保存 or `config.example.json` をコピー編集）：
+```
+inquiry-bot.exe <チケット番号>          解答案をチケットにコメント投稿
+inquiry-bot.exe <チケット番号> --dry     投稿せず内容だけ表示
+```
 
 ## 前提（会社側）
 
