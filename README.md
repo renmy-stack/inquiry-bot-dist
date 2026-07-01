@@ -6,6 +6,8 @@
 
 > このリポジトリは **exe の配布専用** です。ソースコードは非公開リポジトリで管理しています。
 
+> 📋 **会社側で必要な準備（RedMine設定・Q&Aデータ等）は [COMPANY-SETUP.md](COMPANY-SETUP.md) にまとめています。**
+
 ## ダウンロード
 
 最新版はこちら 👉 **[Releases](../../releases/latest)** から `inquiry-bot-vX.Y.Z.zip` をダウンロード
